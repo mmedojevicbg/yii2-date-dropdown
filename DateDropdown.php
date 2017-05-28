@@ -49,6 +49,7 @@ class DateDropdown extends InputWidget
             $currentDate = $this->value;
             echo Html::hiddenInput($this->name, $this->value, $this->options);
         }
+        $this->initI18N(__DIR__);
         $this->generateDropdowns($currentDate);
         $this->registerClientScript();
     }
