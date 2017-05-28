@@ -61,9 +61,11 @@ class DateDropdown extends InputWidget
             $currentYear = $currentDateParts[0];
         }
         echo Html::beginTag('div');
-        echo Html::dropDownList($this->createDayDropdownId(), $currentDay, $this->getDays(), ['id' => $this->createDayDropdownId()]);
-        echo Html::dropDownList($this->createMonthDropdownId(), $currentMonth, $this->getMonths(), ['id' => $this->createMonthDropdownId()]);
-        echo Html::dropDownList($this->createYearDropdownId(), $currentYear, $this->getYears(), ['id' => $this->createYearDropdownId()]);
+        echo Html::dropDownList($this->createDayDropdownId(), $currentDay, $this->getDays(), ['id' => $this->createDayDropdownId(), 'class' => 'date-dropdown', 'data-field' => $this->fieldName]);
+        echo '&nbsp;&nbsp;';
+        echo Html::dropDownList($this->createMonthDropdownId(), $currentMonth, $this->getMonths(), ['id' => $this->createMonthDropdownId(), 'class' => 'date-dropdown', 'data-field' => $this->fieldName]);
+        echo '&nbsp;&nbsp;';
+        echo Html::dropDownList($this->createYearDropdownId(), $currentYear, $this->getYears(), ['id' => $this->createYearDropdownId(), 'class' => 'date-dropdown', 'data-field' => $this->fieldName]);
         echo Html::endTag('div');
     }
     protected function getDays() {
