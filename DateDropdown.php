@@ -71,7 +71,7 @@ class DateDropdown extends InputWidget
     protected function getDays() {
         $days = range(1, 31);
         foreach($days as &$day) {
-            $day =  sprintf("%02d", $days);
+            $day =  sprintf("%02d", $day);
         }
         return ['' => '-- select day --'] + array_combine($days, $days);
     }
