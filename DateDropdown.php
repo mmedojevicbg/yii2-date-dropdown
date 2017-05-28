@@ -19,7 +19,6 @@ class DateDropdown extends InputWidget
     public $tokens = [];
     public $minYear;
     public $maxYear;
-    protected $_msgCat = 'datedropdown';
     public function init()
     {
         parent::init();
@@ -76,29 +75,29 @@ class DateDropdown extends InputWidget
         foreach($days as &$day) {
             $day =  sprintf("%02d", $day);
         }
-        return ['' => '-- ' . Yii::t('datedropdown', 'Select day') . ' --'] + array_combine($days, $days);
+        return ['' => '-- ' . Yii::t('app', 'Select day') . ' --'] + array_combine($days, $days);
     }
     protected function getMonths() {
         $months = [];
-        $months[''] = '-- ' . Yii::t('datedropdown', 'Select month') . ' --';
-        $months['01'] = Yii::t('datedropdown', 'January');
-        $months['02'] = Yii::t('datedropdown', 'February');
-        $months['03'] = Yii::t('datedropdown', 'March');
-        $months['04'] = Yii::t('datedropdown', 'April');
-        $months['05'] = Yii::t('datedropdown', 'May');
-        $months['06'] = Yii::t('datedropdown', 'June');
-        $months['07'] = Yii::t('datedropdown', 'July');
-        $months['08'] = Yii::t('datedropdown', 'August');
-        $months['09'] = Yii::t('datedropdown', 'September');
-        $months['10'] = Yii::t('datedropdown', 'October');
-        $months['11'] = Yii::t('datedropdown', 'November');
-        $months['12'] = Yii::t('datedropdown', 'December');
+        $months[''] = '-- ' . Yii::t('app', 'Select month') . ' --';
+        $months['01'] = Yii::t('app', 'January');
+        $months['02'] = Yii::t('app', 'February');
+        $months['03'] = Yii::t('app', 'March');
+        $months['04'] = Yii::t('app', 'April');
+        $months['05'] = Yii::t('app', 'May');
+        $months['06'] = Yii::t('app', 'June');
+        $months['07'] = Yii::t('app', 'July');
+        $months['08'] = Yii::t('app', 'August');
+        $months['09'] = Yii::t('app', 'September');
+        $months['10'] = Yii::t('app', 'October');
+        $months['11'] = Yii::t('app', 'November');
+        $months['12'] = Yii::t('app', 'December');
         return $months;
     }
     protected function getYears() {
         $years = range($this->minYear, $this->maxYear);
         $years = array_reverse($years);
-        return ['' => '-- ' . Yii::t('datedropdown', 'Select year') . ' --'] + array_combine($years, $years);
+        return ['' => '-- ' . Yii::t('app', 'Select year') . ' --'] + array_combine($years, $years);
     }
     protected function registerClientScript()
     {
