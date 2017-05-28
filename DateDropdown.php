@@ -3,6 +3,7 @@ namespace mmedojevicbg\DateDropdown;
 
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
+use Yii;
 
 class DateDropdown extends InputWidget
 {
@@ -73,29 +74,29 @@ class DateDropdown extends InputWidget
         foreach($days as &$day) {
             $day =  sprintf("%02d", $day);
         }
-        return ['' => '-- select day --'] + array_combine($days, $days);
+        return ['' => '-- ' . Yii::t('datedropdown', 'Select day') . ' --'] + array_combine($days, $days);
     }
     protected function getMonths() {
         $months = [];
-        $months[''] = '-- select month --';
-        $months['01'] = 'January';
-        $months['02'] = 'February';
-        $months['03'] = 'March';
-        $months['04'] = 'April';
-        $months['05'] = 'May';
-        $months['06'] = 'June';
-        $months['07'] = 'July';
-        $months['08'] = 'August';
-        $months['09'] = 'September';
-        $months['10'] = 'October';
-        $months['11'] = 'November';
-        $months['12'] = 'December';
+        $months[''] = '-- ' . Yii::t('datedropdown', 'Select month') . ' --';
+        $months['01'] = Yii::t('datedropdown', 'January');
+        $months['02'] = Yii::t('datedropdown', 'February');
+        $months['03'] = Yii::t('datedropdown', 'March');
+        $months['04'] = Yii::t('datedropdown', 'April');
+        $months['05'] = Yii::t('datedropdown', 'May');
+        $months['06'] = Yii::t('datedropdown', 'June');
+        $months['07'] = Yii::t('datedropdown', 'July');
+        $months['08'] = Yii::t('datedropdown', 'August');
+        $months['09'] = Yii::t('datedropdown', 'September');
+        $months['10'] = Yii::t('datedropdown', 'October');
+        $months['11'] = Yii::t('datedropdown', 'November');
+        $months['12'] = Yii::t('datedropdown', 'December');
         return $months;
     }
     protected function getYears() {
         $years = range($this->minYear, $this->maxYear);
         $years = array_reverse($years);
-        return ['' => '-- select year --'] + array_combine($years, $years);
+        return ['' => '-- ' . Yii::t('datedropdown', 'Select year') . ' --'] + array_combine($years, $years);
     }
     protected function registerClientScript()
     {
