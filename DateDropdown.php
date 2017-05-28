@@ -87,12 +87,12 @@ class DateDropdown extends InputWidget
         DateDropdownAsset::register($view);
     }
     private function createDayDropdownId() {
-        return $this->textAreaId = 'date-dropdown-day-' . $this->fieldName;
+        return $this->dayDropdownId = 'date-dropdown-day-' . $this->fieldName;
     }
     private function createMonthDropdownId() {
-        return $this->textAreaId = 'date-dropdown-month-' . $this->fieldName;
+        return $this->monthDropdownId = 'date-dropdown-month-' . $this->fieldName;
     }
     private function createYearDropdownId() {
-        return $this->textAreaId = 'date-dropdown-year-' . $this->fieldName;
+        return $this->yearDropdownId = 'date-dropdown-year-' . $this->fieldName;
     }
 }
