@@ -69,7 +69,11 @@ class DateDropdown extends InputWidget
         echo Html::endTag('div');
     }
     protected function getDays() {
-        return ['' => '-- select day --'] + array_combine(range(1, 31), range(1, 31));
+        $days = range(1, 31);
+        foreach($days as &$day) {
+            $day =  sprintf("%02d", $days);
+        }
+        return ['' => '-- select day --'] + array_combine($days, $days);
     }
     protected function getMonths() {
         $months = [];
