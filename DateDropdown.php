@@ -19,6 +19,7 @@ class DateDropdown extends InputWidget
     public $tokens = [];
     public $minYear;
     public $maxYear;
+    protected $_msgCat = 'datedropdown';
     public function init()
     {
         parent::init();
