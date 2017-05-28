@@ -39,7 +39,7 @@ class DateDropdown extends InputWidget
             $currentDate = $this->value;
             echo Html::hiddenInput($this->name, $this->value, $this->options);
         }
-        $this->generateDropdowns();
+        $this->generateDropdowns($currentDate);
         $this->registerClientScript();
     }
     protected function generateDropdowns($currentDate) {
