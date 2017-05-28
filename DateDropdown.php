@@ -14,6 +14,7 @@ class DateDropdown extends InputWidget
     protected $dayDropdownId;
     protected $monthDropdownId;
     protected $yearDropdownId;
+    protected $hiddenId;
     public $tokens = [];
     public function init()
     {
@@ -23,13 +24,14 @@ class DateDropdown extends InputWidget
         } else {
             $this->fieldName = $this->name;
         }
+        $this->createHiddenId();
         $this->createDayDropdownId();
         $this->createMonthDropdownId();
         $this->createYearDropdownId();
     }
     public function run()
     {
-        $this->options['id'] = $this->textAreaId;
+        $this->options['id'] = $this->hiddenId;
         if ($this->hasModel()) {
             $currentDate = $this->attribute;
             echo Html::activeHiddenInput($this->model, $this->attribute, $this->options);
@@ -94,5 +96,8 @@ class DateDropdown extends InputWidget
     }
     private function createYearDropdownId() {
         return $this->yearDropdownId = 'date-dropdown-year-' . $this->fieldName;
+    }
+    protected function createHiddenId() {
+        return $this->hiddenId = 'date-dropdown-hidden-' . $this->fieldName;
     }
 }
