@@ -16,6 +16,8 @@ class DateDropdown extends InputWidget
     protected $yearDropdownId;
     protected $hiddenId;
     public $tokens = [];
+    public $minYear;
+    public $maxYear;
     public function init()
     {
         parent::init();
@@ -23,6 +25,12 @@ class DateDropdown extends InputWidget
             $this->fieldName = $this->attribute;
         } else {
             $this->fieldName = $this->name;
+        }
+        if(!$this->minYear) {
+            $this->minYear = date('Y') - 100;
+        }
+        if(!$this->maxYear) {
+            $this->maxYear = date('Y');
         }
         $this->createHiddenId();
         $this->createDayDropdownId();
@@ -79,7 +87,7 @@ class DateDropdown extends InputWidget
         return $months;
     }
     protected function getYears() {
-        $years = range(date('Y') - 110, date('Y') + 110);
+        $years = range($this->minYear, $this->maxYear);
         $years = array_reverse($years);
         return ['' => '-- select year --'] + array_combine($years, $years);
     }
